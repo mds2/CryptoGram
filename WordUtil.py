@@ -44,3 +44,15 @@ class WordUtil:
             if type(msg) == type("hi"):
                 return "".join([self.m.get(l,".") for l in msg])
             return " ".join([self.apply(w) for w in msg])
+
+    def random_cipher():
+        letters = WordUtil.letters
+        perm = [l for l in letters]
+        from random import randrange
+        n = len(perm)
+        for i in range(n):
+            idx = randrange(i, n)
+            tmp = perm[i]
+            perm[i] = perm[idx]
+            perm[idx] = tmp
+        return WordUtil.Cipher(letters, "".join(perm))
