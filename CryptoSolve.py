@@ -26,7 +26,7 @@ def solve(scrambled, cipher_guess = None):
     while q:
         (pri, p) = heapq.heappop(q)
         if len(p.l) < 1:
-            print(p.m.apply(words))
+            yield p.m.apply(words)
         else:
             for w in p.candidates(0, False):
                 pnext = p.try_candidate(0, w)
